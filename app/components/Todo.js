@@ -13,12 +13,15 @@ class Todo extends Component{
 
   render() {
     let { id, text, completed, createdAt } = this.props
-
+    let todoClassName = completed ? 'todo todo-completed' : 'todo';
     return(
-      <div onClick={ () => {
+      <div className={todoClassName} onClick={ () => {
         this.props.onToggle(id);
       }}>
-        <input type="checkbox" checked={ completed }/>
+        <div>
+          <input type="checkbox" checked={ completed }/>
+        </div>
+        
         <p>{ text }</p>
         <p>{ this.renderDate() }</p>
       </div>
