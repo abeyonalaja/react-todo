@@ -5,7 +5,7 @@ class TodoSearch extends Component{
 
   handleSearch() {
     let showCompleted = this.refs.showCompleted.checked;
-    let seachText = this.refs.searchText.value;
+    let searchText = this.refs.searchText.value;
 
     this.props.onSearch(showCompleted, searchText);
   }
