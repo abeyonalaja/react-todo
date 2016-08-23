@@ -1,12 +1,12 @@
 
 import React, { Component } from 'react';
 import uuid from 'node-uuid';
+import moment from 'moment';
 
 import TodoAPI from 'TodoAPI'
 import TodoList from 'TodoList';
 import AddTodo from 'AddTodo'
 import TodoSearch from 'TodoSearch';
-
 
 var TodoApp =  React.createClass({
 
@@ -25,7 +25,13 @@ var TodoApp =  React.createClass({
   handleAddTodo: function(text) {
 
     this.setState({
-      todos:[...this.state.todos,{id:uuid(), text: text, completed: false}]
+      todos:[...this.state.todos,
+        {
+          id:uuid(),
+          text: text,
+          completed: false,
+          createdAt: moment().unix()
+        }]
     })
   },
 
@@ -55,9 +61,7 @@ var TodoApp =  React.createClass({
 
     return (
       <div className="">
-        <TodoSearch onSearch={ this.handleSearch } />
-        <TodoList todos={ filteredTodos } onToggle={ this.handleToggle} />
-        <AddTodo onAddTodo={ this.handleAddTodo } />
+        <h1 className="page-title">Todo App</h1>
       </div>
     );
   }

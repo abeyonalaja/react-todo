@@ -28,7 +28,7 @@ export default  {
     var filteredTodos = todos;
 
     filteredTodos = filteredTodos.filter((todo) => {
-      console.log(todo)
+
         return !todo.completed || showCompleted;
     });
 
