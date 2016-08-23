@@ -21,9 +21,11 @@ class Todo extends Component{
         <div>
           <input type="checkbox" checked={ completed }/>
         </div>
-        
-        <p>{ text }</p>
-        <p>{ this.renderDate() }</p>
+
+        <div>
+          <p>{ text }</p>
+          <p className="todo__subtext">{ this.renderDate() }</p>
+        </div>
       </div>
     );
   }
