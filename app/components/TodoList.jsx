@@ -3,8 +3,14 @@ import Todo from 'Todo';
 
 class TodoList extends Component {
 
-  renderTodos(todos) {
+  renderTodos() {
+    let { todos } = this.props;
 
+    if(todos.length === 0) {
+      return (
+        <p className="container__message">Nothing to Do</p>
+      );
+    }
     return todos.map( (todo) => {
 
         return (
@@ -18,7 +24,7 @@ class TodoList extends Component {
 
     return(
       <div>
-        { this.renderTodos( this.props.todos ) }
+        { this.renderTodos() }
       </div>
     );
   }
